@@ -36,9 +36,25 @@
 
 
 // ******* NUMBERS FUNCTIONS *******//
-$strNum = '120';
-var_dump(is_numeric($strNum));
-echo '<br>';
-$point = 15.8;
-$pointToNum = (int)$point;
-var_dump($pointToNum);
+// $strNum = '120';
+// var_dump(is_numeric($strNum));
+// echo '<br>';
+// $point = 15.8;
+// $pointToNum = (int)$point;
+// var_dump($pointToNum);
+
+
+
+// ******* Exercise with Arrays *******//
+// 
+// $mylist = ['Blue', 'red', 'green'];
+// for ($i = 0; $i < count($mylist); $i++) {
+//     echo $i.$mylist[$i] . "<br>";
+// }
+// $my_associated_list=[
+// 'Age'=>22,
+// 'Car'=>'BMW',
+// 'City'=>'Isfahan'
+// ];
+// echo $my_associated_list['Age']."<br>";
+// echo $my_associated_list['Car'];
