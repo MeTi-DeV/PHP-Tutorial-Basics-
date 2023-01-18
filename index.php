@@ -98,10 +98,10 @@
 // $arr2 = ['Peykan', 'Pride', 'Kia', 'Ford', 'Samand'];
 
 //comment 4 : an example for three arrays
-// $arr1 = ['Benz', 'BMW'];
-// $arr2 = ['Peykan', 'Pride'];
-// $arr3 = ['Kia', 'Ford'];
-// var_dump(array_replace($arr2, $arr1,$arr3));
+$arr1 = ['Benz', 'BMW'];
+$arr2 = ['Peykan', 'Pride'];
+$arr3 = ['Kia', 'Ford'];
+var_dump(array_replace($arr2, $arr1,$arr3));
 
 //comment 4 : array_slice for extend part of array like here form key 2 till end 
 //comment 5 : third argument of array_slice is end of slice
