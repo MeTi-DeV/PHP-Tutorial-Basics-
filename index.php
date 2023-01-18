@@ -85,27 +85,45 @@
 // var_dump($names);
 
 // ******* Arrays part 3 *******//
-//comment 1 : array_replace for replace to array first argument will place as second argument
 // $arr1 = ['Benz', 'BMW'];
 // $arr2 = ['Peykan', 'Pride'];
-//comment 2 : BMW has no key so show that as index key
 // $arr1 = ['a' => 'Benz', 'BMW'];
 // $arr2 = ['a' => 'Peykan','b' =>  'Pride'];
-
-//comment 3 : BMW has index key as 3 so for replace in $arr2 it will instade 'Ford'
 
 // $arr1 = ['Benz', 3 => 'BMW'];
 // $arr2 = ['Peykan', 'Pride', 'Kia', 'Ford', 'Samand'];
 
-//comment 4 : an example for three arrays
-$arr1 = ['Benz', 'BMW'];
-$arr2 = ['Peykan', 'Pride'];
-$arr3 = ['Kia', 'Ford'];
-var_dump(array_replace($arr2, $arr1,$arr3));
+// $arr1 = ['Benz', 'BMW'];
+// $arr2 = ['Peykan', 'Pride'];
+// $arr3 = ['Kia', 'Ford'];
+// var_dump(array_replace($arr2, $arr1,$arr3));
+// 
+// $arr1 = ['Peykan', 'Pride', 'Kia', 'Ford', 'Samand'];
+// 
+// var_dump(array_slice($arr1, 1));
+// var_dump(array_slice($arr1, 2,4));
 
-//comment 4 : array_slice for extend part of array like here form key 2 till end 
-//comment 5 : third argument of array_slice is end of slice
-$arr1 = ['Peykan', 'Pride', 'Kia', 'Ford', 'Samand'];
+// ******* Arrays part 4 *******//
+$arr1 = ['a' => 'Mehdi', 'b' => 'Negin', 'c' => 'Reza', 'd' => 'Sara'];
+$arr2 = ['a' => 'Mehdi', 'b' => 'Negin'];
+//comment 1 : one of important methods array_splice first argument get array need to change second argument for start from wich array index
+// and third argument for number of indexes need to change and forth argument for array that apply changes
+array_splice($arr1, 2, 2, $arr2);
+var_dump($arr1);
 
-var_dump(array_slice($arr1, 1));
-var_dump(array_slice($arr1, 2,4));
+$car_name = 'BMW';
+$car_color = 'White';
+$car_year = 2023;
+//comment 2 : compact make list of variables to associated array argumments should be list of strings
+$result = compact('car_name', 'car_color', 'car_year');
+var_dump($result);
+//comment 3 : extract , extract all keys of associated array as variables ====>>> for $arr1: $a ,$b ,....
+extract($arr1);
+// echo ($a);
+// echo ($b);
+$arr3 = ['Peykan', 'Pride', 'Kia', 'Ford', 'Samand'];
+//comment 4 : in_array search is there first value as argumment  in array as secodnd argumment? and send result as boolean
+var_dump(in_array('Kia', $arr3));
+//comment 5 : sort array values for alphabet [a-z] numbers[0-9] 
+sort($arr3);
+var_dump($arr3);
