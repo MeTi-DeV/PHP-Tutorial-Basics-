@@ -188,3 +188,29 @@
 // 
 // $result = array_map('adder', [3, 5, 7]);
 // var_dump($result);
+// ******* Global Variables part *******//
+function func()
+{
+    global $a;
+    $a = 10;
+}
+func();
+echo $a;
+function   func2(){
+    $b=0;
+    echo $b;
+    $b++;
+}
+func2();
+func2();
+func2();
+func2();
+function   func3(){
+   static $c=0;
+   echo $c;
+    $c++;
+}
+func3();
+func3();
+func3();
+func3();
