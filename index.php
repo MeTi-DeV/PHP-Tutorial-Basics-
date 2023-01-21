@@ -104,26 +104,61 @@
 // var_dump(array_slice($arr1, 2,4));
 
 // ******* Arrays part 4 *******//
-$arr1 = ['a' => 'Mehdi', 'b' => 'Negin', 'c' => 'Reza', 'd' => 'Sara'];
-$arr2 = ['a' => 'Mehdi', 'b' => 'Negin'];
-//comment 1 : one of important methods array_splice first argument get array need to change second argument for start from wich array index
+// $arr1 = ['a' => 'Mehdi', 'b' => 'Negin', 'c' => 'Reza', 'd' => 'Sara'];
+// $arr2 = ['a' => 'Mehdi', 'b' => 'Negin'];
 // and third argument for number of indexes need to change and forth argument for array that apply changes
-array_splice($arr1, 2, 2, $arr2);
-var_dump($arr1);
+// array_splice($arr1, 2, 2, $arr2);
+// var_dump($arr1);
 
-$car_name = 'BMW';
-$car_color = 'White';
-$car_year = 2023;
-//comment 2 : compact make list of variables to associated array argumments should be list of strings
-$result = compact('car_name', 'car_color', 'car_year');
-var_dump($result);
-//comment 3 : extract , extract all keys of associated array as variables ====>>> for $arr1: $a ,$b ,....
-extract($arr1);
+// $car_name = 'BMW';
+// $car_color = 'White';
+// $car_year = 2023;
+// $result = compact('car_name', 'car_color', 'car_year');
+// var_dump($result);
+// extract($arr1);
 // echo ($a);
 // echo ($b);
-$arr3 = ['Peykan', 'Pride', 'Kia', 'Ford', 'Samand'];
-//comment 4 : in_array search is there first value as argumment  in array as secodnd argumment? and send result as boolean
-var_dump(in_array('Kia', $arr3));
-//comment 5 : sort array values for alphabet [a-z] numbers[0-9] 
-sort($arr3);
-var_dump($arr3);
+// $arr3 = ['Peykan', 'Pride', 'Kia', 'Ford', 'Samand'];
+// var_dump(in_array('Kia', $arr3));
+// sort($arr3);
+// var_dump($arr3);
+// ******* Loops part *******//
+
+
+$array = ['Benz', 'BMW', 'Volvo'];
+for ($counter = 0; $counter < count($array); $counter++) {
+    echo $array[$counter] . ' ';
+}
+$acArray = [
+    ['a' => 'Mehdi', 'code' => '1234'],
+    ['b' => 'Yashar', 'code' => '7689']
+];
+
+
+for ($i = 0; $i < count($acArray); $i++) {
+    $acArray[$i]['rand'] = rand(1111, 9999);
+}
+
+var_dump($acArray);
+$colors = ['Green', 'Red', 'Blue', 'Yellow'];
+foreach ($colors as $color) {
+    echo $color . ' ';
+}
+
+$users = [['Mehdi', 'Negin'], ['Reza', 'Mahshid'],];
+foreach ($users as $user) {
+    foreach ($user as $name) {
+        echo $name . ' ';
+    }
+}
+$data = ['name' => 'Mehdi', 'age' => 23, 'job' => 'Programmer'];
+foreach ($data as $key => $value) {
+    echo $key . ' => ' . $value . ' ';
+}
+$counter=0;
+for ($counter; $counter <20 ; $counter++) { 
+    if (!($counter%2==0)) {
+        continue;
+    }
+    echo $counter.' , ';
+}
