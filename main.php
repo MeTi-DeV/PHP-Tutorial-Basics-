@@ -10,37 +10,50 @@
 </head>
 
 <body>
-  <div style="margin: auto 0;  display: flex;
+  <column>
+    <div style="margin: auto 0;  display: flex;
   justify-content: center;
   align-items: center;">
-    <?php
-    $first_name = $_GET['first_name'];
-    $email = $_GET['email'];
-    $name_list = ["Mehdi", "Reza", "Negin", "Yashar",];
-    if (in_array($first_name, $name_list)) {
-      echo "<div class='card text-bg-success mb-3' style='max-width: 18rem;'>
+      <?php
+      $first_name = $_POST['first_name'];
+      $email = $_POST['email'];
+      $name_list = ["Mehdi", "Reza", "Negin", "Yashar",];
+
+
+
+      if (in_array($first_name, $name_list)) {
+        echo "<div class='card text-bg-success mb-3' style='max-width: 18rem;'>
     <div class='card-header'>Success Validate</div>
     <div class='card-body'>
       <h5 class='card-title'>Hello  $first_name</h5>
       <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
   </div>";
-    } else {
-      echo "<div class='card text-bg-danger mb-3' style='max-width: 18rem;'>
+      } else {
+        echo "<div class='card text-bg-danger mb-3' style='max-width: 18rem;'>
   <div class='card-header'>Invalid</div>
   <div class='card-body'>
     <h5 class='card-title'>You are not Valid User</h5>
     <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   </div>";
-}
+      }
 
-// $direct_path = __DIR__;
-var_dump($_FILES);
-// move_uploaded_file($_FILES['']);
-?>
-  </div>
-  
+      $basePath = __DIR__;
+      $hasUploaded = move_uploaded_file($_FILES['image']['tmp_name'], $basePath . '/assets/images' . $_FILES['image']['name']);
+      if ($hasUploaded) {
+        echo "
+      
+      <div class='card text-bg-primary mb-3' style='max-width: 18rem;'>
+  <div class='card-header'>Filed Uploaded</div>
+  </div>";
+      }
+      ?>
+    </div>
+
+
+  </column>
+
 
 </body>
 
