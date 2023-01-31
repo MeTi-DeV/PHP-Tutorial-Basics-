@@ -230,5 +230,8 @@
 //comment 1 :sessions use for pass data between diffrent pages
 //here set session by id 'fname' and pass 'Mehdi' to show it at main.php
 //Atention: first should set session value and then go to second page otherwise show undefined value
-session_start();
-$_SESSION['fname']='Mehdi';
+// session_start();
+// $_SESSION['fname']='Mehdi';
+// ******* Cookies Section *******//
+setcookie('Token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c', time() * 3600);
+echo $_COOKIE['Token'];
