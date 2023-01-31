@@ -189,28 +189,46 @@
 // $result = array_map('adder', [3, 5, 7]);
 // var_dump($result);
 // ******* Global Variables part *******//
-function func()
-{
-    global $a;
-    $a = 10;
-}
-func();
-echo $a;
-function   func2(){
-    $b=0;
-    echo $b;
-    $b++;
-}
-func2();
-func2();
-func2();
-func2();
-function   func3(){
-   static $c=0;
-   echo $c;
-    $c++;
-}
-func3();
-func3();
-func3();
-func3();
+// function func()
+// {
+//     global $a;
+//     $a = 10;
+// }
+// func();
+// echo $a;
+// function   func2(){
+//     $b=0;
+//     echo $b;
+//     $b++;
+// }
+// func2();
+// func2();
+// func2();
+// func2();
+// function   func3(){
+//    static $c=0;
+//    echo $c;
+//     $c++;
+// }
+// func3();
+// func3();
+// func3();
+// func3();
+// ******* Super Global Variables part *******//
+// $a = 20;
+// $b = 10;
+// 
+// function add()
+// {
+// 
+//     $GLOBALS['c'] = $GLOBALS['a'] + $GLOBALS['b'];
+// }
+// add();
+// echo $c;
+// print_r($_SERVER);
+// ******* Sessions Section *******//
+//comment 1 :sessions use for pass data between diffrent pages
+//here set session by id 'fname' and pass 'Mehdi' to show it at main.php
+//Atention: first should set session value and then go to second page otherwise show undefined value
+session_start();
+$_SESSION['fname']='Mehdi';

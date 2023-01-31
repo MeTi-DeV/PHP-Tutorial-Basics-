@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,15 +10,14 @@
 </head>
 
 <body>
-    <?php
-    require_once('public/header.php')
-    ?>
+
     <main>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea culpa tenetur aut illum deserunt sequi vel similique rem aperiam! Voluptates laboriosam consectetur error explicabo repudiandae maiores! Iste nostrum magni eaque!</p>
     </main>
-    <?php
-    require_once('public/footer.php');
-    ?>
+
 </body>
 
-</html>
+</html> -->
+<?php
+session_start();
+echo $_SESSION['fname'];
