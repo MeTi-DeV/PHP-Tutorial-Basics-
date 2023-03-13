@@ -2,15 +2,17 @@
 $serverName = "localhost";
 $userName = "root";
 $password = "";
-$dbName="mehdi";
-$connection = new mysqli($serverName, $userName, $password,$dbName);
+$dbName = "w3schools";
+$connection = new mysqli($serverName, $userName, $password, $dbName);
 if ($connection->connect_error) {
     die('error' . $connection->connect_error);
 }
 
-$sql = "INSERT INTO `users`(`id`,`fname`)VALUES(1,'mehdi')";
-if ($connection->query($sql)) {
-    echo 'ok';
-} else {
-    echo 'no' . $connection->error;
+$sql = "SELECT * FROM `categories` ORDER BY `CategoryID`";
+
+$result = $connection->query($sql);
+if ($result->num_rows > 0) {
+    while ($rows = $result->fetch_assoc()) {
+        echo "id : " . $rows['CategoryID'] . " name : " . $rows['CategoryName'] . "description : " . $rows['Description'] . "<br>";
+    }
 }
