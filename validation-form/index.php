@@ -12,16 +12,56 @@
 
 <body>
     <?php
-    $nameErr = $emailErr = $phoneErr = $genderErr = $agreeErr = '';
+    $nameErr = $emailErr = $phoneErr = $genderErr = $agreeErr = $totalErr = '';
     $name = $email = $phone = $gender = $agree = '';
-    function ($data) {
+    function input_data($data)
+    {
         $data = trim($data);
         $data = stripslashes($data);
+        $data = htmlspecialchars($data);
         return $data;
-    };
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_POST['name'])) {
-
+            $nameErr = 'Name Is Required';
+        } else {
+            $name = input_data($_POST['name']);
+            if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+                $nameErr = 'only alphabets and whitespace are allowed';
+            }
+        }
+        if (empty($_POST['email'])) {
+            $emailErr = 'Email Is Required';
+        } else {
+            $email = input_data($_POST['email']);
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = 'Invalid Email';
+            }
+        }
+        if (empty($_POST['phone'])) {
+            $phoneErr = 'Phone Is Required';
+        } else {
+            $phone = input_data($_POST['phone']);
+            if (!preg_match("/^[0-9]*$/", $phone)) {
+                $phoneErr = 'Invalid Phone';
+            }
+            if ($_POST['phone'] != 10) {
+                $phoneErr = 'Phone Number Should be more than 10 digits';
+            }
+        }
+        if (empty($_POST['gender'])) {
+            $genderErr = 'Gender Is Required';
+        } else {
+            $gender = $_POST['gender'];
+        }
+        if (empty($_POST['agree'])) {
+            $agreeErr = 'Agree Is Required';
+        } else {
+            $agree = $_POST['agree'];
+        }
+        if (empty($_POST)) {
+            $totalErr = 'All Fields are Require';
         }
     }
     ?>
@@ -30,47 +70,41 @@
             <div class="row">
                 <h2>PHP Form Validation</h2>
                 <br>
-                <form action="index.php" method="post" class="">
+                <form action="index.php" method="post">
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer01">Name</label>
-                            <input type="text" class="form-control is-valid" id="validationServer01"
-                                placeholder="Enter Your Name" name="name" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
+                            <label for="">Name</label>
+                            <input type="text" class="form-control <?= $nameErr=='' ? 'is-invalid' : 'is-valid';?>" id=""
+                                placeholder="Enter Your Name" name="name" >
+                            
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer01">Email</label>
-                            <input type="email" class="form-control is-valid" id="validationServer01"
-                                placeholder="Enter Your Email" name="email" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
+                            <label for="">Email</label>
+                            <input type="email" class="form-control" id=""
+                                placeholder="Enter Your Email" name="email" >
+
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationServer01">Phone</label>
-                            <input type="tel" class="form-control is-valid" id="validationServer01"
-                                placeholder="Enter Your Phone Number" name="phone" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
+                            <label for="">Phone</label>
+                            <input type="tel" class="form-control" id=""
+                                placeholder="Enter Your Phone Number" name="phone" >
+
                         </div>
                         <fieldset class="form-group">
                             <div class="row">
                                 <legend class="col-form-label col-sm-1 pt-0">Gender</legend>
                                 <div class="col-sm-10">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                            value="male" checked>
-                                        <label class="form-check-label" for="gridRadios1">
+                                        <input class="form-check-input" type="radio" name="gender" id=""
+                                            value="male">
+                                        <label class="form-check-label" for="">
                                             Male
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                        <input class="form-check-input" type="radio" name="gender" id=""
                                             value="female">
-                                        <label class="form-check-label" for="gridRadios2">
+                                        <label class="form-check-label" for="">
                                             Female
                                         </label>
                                     </div>
@@ -80,15 +114,15 @@
                         <br>
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" name="agree"
-                                    required>
-                                <label class="form-check-label" for="invalidCheck2">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="agree"
+                                    >
+                                <label class="form-check-label" for="">
                                     Agree to terms and conditions
                                 </label>
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
