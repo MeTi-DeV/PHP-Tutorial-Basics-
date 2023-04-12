@@ -70,25 +70,30 @@
             <div class="row">
                 <h2>PHP Form Validation</h2>
                 <br>
+                <br>
+                
                 <form action="index.php" method="post">
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="">Name</label>
-                            <input type="text" class="form-control <?= $nameErr=='' ? 'is-invalid' : 'is-valid';?>" id=""
-                                placeholder="Enter Your Name" name="name" >
+                            <input type="text" id=""
+                            placeholder="Enter Your Name" name="name" >
                             
+                            <span><?=$nameErr?></span>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="">Email</label>
-                            <input type="email" class="form-control" id=""
-                                placeholder="Enter Your Email" name="email" >
-
+                            <input type="email" id=""
+                            placeholder="Enter Your Email" name="email" >
+                            
+                            <span><?=$emailErr?></span>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="">Phone</label>
-                            <input type="tel" class="form-control" id=""
-                                placeholder="Enter Your Phone Number" name="phone" >
-
+                            <input type="tel" id=""
+                            placeholder="Enter Your Phone Number" name="phone" >
+                            
+                            <span><?=$phoneErr?></span>
                         </div>
                         <fieldset class="form-group">
                             <div class="row">
@@ -96,30 +101,32 @@
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="gender" id=""
-                                            value="male">
+                                        value="male">
                                         <label class="form-check-label" for="">
                                             Male
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="gender" id=""
-                                            value="female">
+                                        value="female">
                                         <label class="form-check-label" for="">
                                             Female
                                         </label>
                                     </div>
                                 </div>
+                                <span><?=$genderErr?></span>
                             </div>
                         </fieldset>
                         <br>
                         <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="" name="agree"
-                                    >
+                                >
                                 <label class="form-check-label" for="">
                                     Agree to terms and conditions
                                 </label>
                             </div>
+                            <span><?=$agreeErr?></span>
                         </div>
                         <br>
                         <button class="btn btn-primary" type="submit">Submit</button>
